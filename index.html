@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage with Centered Boxes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0f0f0f; /* Background color: 15, 15, 15 */
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrolling while the overlay is active */
+        }
+
+        /* Banner Section */
+        .banner {
+            background-color: #171717; /* Banner color: 23, 23, 23 */
+            padding: 15px 30px; /* Reduced banner height */
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Ensure it stays on top */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            justify-content: flex-start; /* Align text to the left */
+        }
+
+        .banner-content {
+            display: flex;
+            align-items: center; /* Center text vertically */
+        }
+
+        .banner-content span {
+            background: linear-gradient(to right, #6f00ff, white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.5em;
+            margin-right: 20px; /* Space between text and image */
+        }
+
+        .banner img {
+            height: 25px; /* Adjust image height to fit the banner */
+            cursor: pointer; /* Indicate the image is clickable */
+        }
+
+        /* Main Container Section */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 45px); /* Adjusted for banner height */
+            margin-top: 45px; /* Space for the banner */
+        }
+
+        .box {
+            width: 400px;
+            height: 300px;
+            background-color: transparent; /* Transparent background */
+            margin: 0 100px; /* 200px space between the boxes */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent; /* Reduced border width */
+            border-image: linear-gradient(to bottom, #000000, #6f00ff); /* Black to purple gradient */
+            border-image-slice: 1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle black border glow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for hover effect */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box:hover {
+            transform: perspective(600px) rotateX(10deg) translateY(-10px); /* Tilting animation with a slight pop-up effect */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 0 15px #6f00ff; /* Glowing effect on hover */
+        }
+
+        .box-content {
+            position: absolute;
+            text-align: center;
+            color: white;
+            font-size: 1.5em;
+            transition: opacity 0.3s ease;
+        }
+
+        .download-button-wrapper {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .download-button {
+            opacity: 0;
+            padding: 10px 20px;
+            background-color: black;
+            border: 2px solid #6f00ff;
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease, opacity 0.3s ease, border-image 0.3s ease; /* Added border-image transition */
+        }
+
+        .download-button:hover {
+            box-shadow: 0 0 15px #6f00ff;
+            border-image: linear-gradient(to right, #6f00ff, white); /* Purple to white gradient */
+            border-image-slice: 1;
+        }
+
+        .box:hover .download-button {
+            opacity: 1;
+        }
+
+        /* LOL Image */
+        .lol-image {
+            position: fixed;
+            bottom: 10px;
+            left: 30px; /* Positioned at the bottom-left corner */
+            height: 25px; /* Adjust image height */
+        }
+
+        /* "Coming Soon" Text */
+        .coming-soon {
+            background: linear-gradient(to right, #6f00ff, white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2em; /* Font size for "Coming Soon" */
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner Section -->
+    <div class="banner">
+        <div class="banner-content">
+            <span>Vanish.gg</span>
+        </div>
+        <!-- LOL image at the bottom-left corner -->
+        <a href="https://discord.gg/vanishgg" target="_blank">
+            <img src="lol.png" alt="Discord Icon" class="lol-image">
+        </a>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <div class="box">
+            <div class="box-content">Vanish Raider</div>
+            <a href="https://github.com/vanishgg/VanishRaider" class="download-button-wrapper" target="_blank">
+                <div class="download-button">Download</div>
+            </a>
+        </div>
+        <div class="box">
+            <div class="coming-soon">Coming Soon</div>
+        </div>
+    </div>
+</body>
+</html>
